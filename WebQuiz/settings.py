@@ -33,7 +33,7 @@ SECRET_KEY='django-insecure-n-%v0fp2#4k#$vsz87t1b%2@=a(nz)3%lj1ps4eet9*cg&#+yi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'quizifypro.onrender.com']
 
 
 # Application definition
