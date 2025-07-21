@@ -141,3 +141,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 GOOGLE_GEMINI_API_KEY = 'AIzaSyDdSv-6e-9Mw4WgjTEIVUgAJ2T7o0o20bE'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CSRF_TRUSTED_ORIGINS = ['https://quizifypro.onrender.com']
