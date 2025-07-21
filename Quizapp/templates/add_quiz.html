@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Quiz to {{ category.name }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label>Quiz Title</label>
+        <input type="text" name="quiz_title" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Time Limit (in mins)</label>
+        <input type="text" name="time_limit" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Total Marks</label>
+        <input type="text" name="total_marks" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add Quiz</button>
+</form>
+{% endblock %}

@@ -1,0 +1,25 @@
+step 1: python -m venv venv
+step 2: .\venv\scripts\activate
+step 3: python -m pip install -r requirements.txt
+step 4: python.exe -m pip install --upgrade pip
+step 5: django-admin startproject WebQuiz
+step 6: cd WebQuiz
+step 7: python manage.py startapp Quizapp
+step 8: python manage.py makemigrations
+step 9: python manage.py migrate
+step 10: python manage.py runserver
+
+step 11: copy files from WebQuiz folder, Quizapp Folder, also copy static and templates folders in same places
+step 12: python manage.py makemigrations
+step 13: python manage.py migrate
+step 14: python manage.py runserver
+
+
+Environment activation error 
+
+administrator Powershell command:
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+
+source ./venv/bin/activate

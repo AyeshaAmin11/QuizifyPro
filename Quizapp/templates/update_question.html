@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Update Question</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3"><label>Topic</label><input type="text" name="topic" class="form-control" value="{{ question.topic }}"></div>
+    <div class="mb-3"><label>Difficulty</label><input type="text" name="difficulty_level" class="form-control" value="{{ question.difficulty_level }}"></div>
+    <div class="mb-3"><label>Question</label><textarea name="question" class="form-control">{{ question.question }}</textarea></div>
+    <div class="mb-3"><label>Option 1</label><input type="text" name="option1" class="form-control" value="{{ question.option1 }}"></div>
+    <div class="mb-3"><label>Option 2</label><input type="text" name="option2" class="form-control" value="{{ question.option2 }}"></div>
+    <div class="mb-3"><label>Option 3</label><input type="text" name="option3" class="form-control" value="{{ question.option3 }}"></div>
+    <div class="mb-3"><label>Option 4</label><input type="text" name="option4" class="form-control" value="{{ question.option4 }}"></div>
+    <div class="mb-3"><label>Correct Answer</label><input type="text" name="correct_answer" class="form-control" value="{{ question.correct_answer }}"></div>
+    <button type="submit" class="btn btn-primary">Update Question</button>
+</form>
+{% endblock %}

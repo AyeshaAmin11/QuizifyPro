@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Question to Quiz: {{ quiz.quiz_title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3"><label>Topic</label><input type="text" name="topic" class="form-control"></div>
+
+    <div class="mb-3"><label for="difficulty_level">Difficulty Level:</label>
+            <select name="difficulty_level" required="" class="form-control mb-3">
+                <option value="">Select Difficulty Level</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Difficult">Difficult</option>
+            </select> </div>
+    <div class="mb-3"><label>Question</label><textarea name="question" class="form-control" required></textarea></div>
+    <div class="mb-3"><label>Option 1</label><input type="text" name="option1" class="form-control" required></div>
+    <div class="mb-3"><label>Option 2</label><input type="text" name="option2" class="form-control" required></div>
+    <div class="mb-3"><label>Option 3</label><input type="text" name="option3" class="form-control"></div>
+    <div class="mb-3"><label>Option 4</label><input type="text" name="option4" class="form-control"></div>
+    <div class="mb-3"><label>Correct Answer</label><input type="text" name="correct_answer" class="form-control" required></div>
+    <button type="submit" class="btn btn-success">Add Question</button>
+</form>
+{% endblock %}

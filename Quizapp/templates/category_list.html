@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Categories</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include 'educatorNavbar.html' %}
+
+    <div class="container mt-4">
+        {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    
+    <div class="container mt-5">
+        <h1>Quiz Categories</h1>
+
+        <!-- Add New Category Button -->
+        <a href="{% url 'add_category' %}" class="btn btn-success mb-3">Add New Category</a>
+
+        <ul class="list-group">
+            {% for category in categories %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <a href="{% url 'quiz_list' category.id %}">
+                        <!-- Display the image using the .url attribute -->
+                        <img src="{{ category.cat_image.url }}" alt="Category Image" style="width: 100px; height: 100px;">
+                        {{ category.cat_name }}
+                    </a>
+
+                    <!-- Update and Delete buttons -->
+                    <div>
+                        <a href="{% url 'update_category' category.id %}" class="btn btn-primary btn-sm mr-2">Update</a>
+
+                        <!-- Delete button - submit form for confirmation -->
+                        <form action="{% url 'confirm_delete_category' category.id %}" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No categories available</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

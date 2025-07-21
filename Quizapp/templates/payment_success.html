@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Successful</title>
+</head>
+<body >
+
+    {% include 'navbar.html' %}
+
+
+
+<div style="font-family: Arial; padding: 40px; text-align: center;">
+    <h2>✅ Payment Successful!</h2>
+    <p>Thank you, {{ email }}.</p>
+    <p>Your subscription to <strong>{{ plan }}</strong> is now active.</p>
+    <p>Amount paid: <strong>$ {{ amount }}</strong></p>
+    <p>Transaction ID: <code>{{ txn_id }}</code></p>
+</div>
+</body>
+</html>

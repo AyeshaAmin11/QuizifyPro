@@ -1,0 +1,41 @@
+
+
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator Home</title>
+</head>
+
+<body>
+    {% include 'educatorNavbar.html' %}
+
+
+
+    <div class="contact"style="background-color: #F5F9FF; padding:8% 0% 7% 0%;">
+        <div class="container">
+            <div class="row" >
+                <div class="col-md-5">
+                    <p class="text-primary">PROFILE</p>
+                    <h2>Educator Profile</h2>
+                    <form style=" text-align: left"  class="mt-3" action="/educatorHome">
+                        <label>Name</label>
+                        <input type="text" readonly value="{{ user.first_name }} {{ user.last_name }}" class="form-control">
+                        <label>User Name</label>
+                        <input type="text" readonly value="{{ user.username }}" class="form-control">
+                        <label>Email</label>
+                        <input type="email" readonly value="{{ user.email }}" class="form-control">
+                    </form>
+                </div>
+                <div class="col-md-6 offset-md-1 mt-5">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>

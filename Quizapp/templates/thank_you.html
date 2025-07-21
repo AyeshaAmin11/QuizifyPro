@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Completed</title>
+</head>
+<body>
+    {% include 'studentNavbar.html' %}
+
+    {% if user.is_authenticated %}
+    <h2 style="text-align: center;">Thank You, {{ user.username }}!</h2>
+{% else %}
+    <p>Please log in to view your quiz results.</p>
+{% endif %}
+
+
+   <br>
+   <h1 style="text-align: center;">Quiz Completed!</h1>
+<p style="text-align: center;" id="final-score"></p>
+
+<script>
+    let finalScore = localStorage.getItem("finalScore");
+    let totalQuestions = localStorage.getItem("totalQuestions");
+    
+    document.getElementById("final-score").textContent = `Your final score is: ${finalScore}/${totalQuestions}`;
+    
+    // Clear localStorage after displaying
+    localStorage.removeItem("finalScore");
+    localStorage.removeItem("totalQuestions");
+</script>
+
+</body>
+</html>

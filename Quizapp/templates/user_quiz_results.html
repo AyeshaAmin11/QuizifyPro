@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Quiz Results</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .ai-review {
+            background-color: #f8f9fa;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    {% include 'studentNavbar.html' %}
+    
+    <div class="container mt-5">
+        <h1>Your Quiz Results</h1>
+
+        <ul class="list-group">
+            {% for result in user_results %}
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5>Category: {{ result.category }}</h5>
+                            <p>Difficulty: {{ result.difficulty }}</p>
+                            <p>Your Score: <strong>{{ result.obtained_marks }}/{{ result.total_marks }}</strong></p>
+                            <p>Submitted At: {{ result.submitted_at|date:"F d, Y h:i A" }}</p>
+                        </div>
+                    </div>
+                    
+                    {% if result.ai_review %}
+                    <div class="ai-review mt-3">
+                        <h6>Feedback:</h6>
+                        <p>{{ result.ai_review }}</p>
+                    </div>
+                    {% endif %}
+                    </li>
+                <hr/>
+            {% empty %}
+                <li class="list-group-item">No quiz results available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizifyPro - Smarter Quizzing</title>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1> QUIZ SMARTER NOT HARDER! </h1>
+            <p>Experience the next level of quizzing with QuizifyPro - the AI-powered platform for smarter, faster, and better assessments.</p>
+            <div class="hero-buttons">
+                <a href="#features" class="btn primary-btn">Get Started</a>
+                <a href="#pricing" class="btn secondary-btn">See Plans</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <br /><br /><br />
+        <div class="container">
+            <h2>Why Choose QuizifyPro?</h2>
+            <div class="feature-list">
+                <div class="feature">
+                    <div class="icon-container">
+                        <div class="icon user-friendly"></div>
+                    </div>
+                    <h3>User-Friendly Interface</h3>
+                    <p>Intuitive design for seamless quiz creation and participation.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon-container">
+                        <div class="icon ai"></div>
+                    </div>
+                    <h3>AI-Powered Quiz Creation</h3>
+                    <p>Generate diverse questions based on topics and difficulty levels.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon-container">
+                        <div class="icon grading"></div>
+                    </div>
+                    <h3>Real-Time Grading</h3>
+                    <p>Instantly grade quizzes and provide detailed feedback.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon-container">
+                        <div class="icon multimedia"></div>
+                    </div>
+                    <h3>Multimedia Integration</h3>
+                    <p>Engage learners with images, videos, and audio clips.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <br /><br /><br />
+        <div class="container">
+            <h2>Pricing Plans</h2>
+            <div class="pricing-tables">
+                <div class="pricing-plan">
+                    <h3>Basic</h3>
+                    <p class="price">$0 <span>/month</span></p>
+                    <ul>
+                        <li>10 quizzes per month</li>
+                        <li>Basic reports</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="/register" class="btn primary-btn">Sign Up</a>
+                </div>
+                <div class="pricing-plan popular">
+                    <h3>Pro</h3>
+                    <p class="price">$10 <span>/month</span></p>
+                    <ul>
+                        <li>Unlimited quizzes</li>
+                        <li>Advanced analytics</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="{% url 'subscribe_plan' %}" class="btn secondary-btn">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Contact Section (Updated) -->
+     <section id="contact" class="contact">
+        <br /><br /><br />
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p>For inquiries, support, or feedback, feel free to reach out to us. We are happy to assist you!</p>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn primary-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 QuizifyPro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

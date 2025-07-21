@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Update Quiz: {{ quiz.quiz_title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label>Quiz Title</label>
+        <input type="text" name="quiz_title" value="{{ quiz.quiz_title }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Time Limit</label>
+        <input type="text" name="time_limit" value="{{ quiz.time_limit }}" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Quiz</button>
+</form>
+{% endblock %}

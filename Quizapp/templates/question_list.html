@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Questions in Quiz: {{ quiz.quiz_title }} of {{ category.cat_name }}</h2>
+<a href="{% url 'add_question' quiz.id %}" class="btn btn-primary">Add Question</a>
+<a href="{% url 'add_gpt_quiz' category.id quiz.id %}" class="btn btn-success"> <i class="bi bi-robot"></i> Add Questions with AI </a>
+
+
+{% if questions %}
+<div class="container-fluid px-0">  <!-- container-fluid makes it full width -->
+    <div class="table-responsive">  <!-- Makes table scrollable on small screens -->
+        <table class="table mt-3 w-100">  <!-- w-100 makes table 100% width -->
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Topic</th>
+            <th>Difficulty</th>
+            <th>Question</th>
+            <th>Option1</th>
+            <th>Option2</th>
+            <th>Option3</th>
+            <th>Option4</th>
+            <th>Answer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for question in questions %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ question.topic }}</td>
+            <td>{{ question.difficulty_level }}</td>
+            <td>{{ question.question }}</td>
+            <td>{{ question.option1 }}</td>
+            <td>{{ question.option2 }}</td>
+            <td>{{ question.option3 }}</td>
+            <td>{{ question.option4 }}</td>
+            <td>{{ question.correct_answer }}</td>
+            <td>
+                <a href="{% url 'update_question' question.id %}" class="btn btn-sm btn-warning">Edit</a>
+                <form action="{% url 'delete_question' question.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+{% else %}
+<p class="mt-3">No questions added yet.</p>
+{% endif %}
+{% endblock %}

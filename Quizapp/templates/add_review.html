@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Review</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .star-rating {
+            direction: rtl; /* Right-to-left for proper alignment */
+            display: flex;
+        }
+
+        .star-rating input[type="radio"] {
+            display: none; /* Hide the radio buttons */
+        }
+
+        .star-rating label {
+            font-size: 4rem;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input[type="radio"]:checked ~ label {
+            color: #f5c518; /* Highlighted star color */
+        }
+    </style>
+</head>
+<body>
+    {% include 'studentNavbar.html' %}
+
+    <div class="container mt-5">
+        <h1>Review Quiz: {{ quiz_result.category }}</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="rating">Rating:</label> <br/><br/>
+                <div class="star-rating" id="rating" style="float: left;">
+                    <input type="radio" id="star5" name="rating" value="5" required>
+                    <label for="star5">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2">&#9733;</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1">&#9733;</label>
+                </div>
+            </div>
+            <br/><br/>
+            <div class="form-group">
+                <label for="message">Your Review:</label>
+                <textarea id="message" name="message" class="form-control" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+        
+        <a href="{% url 'user_quiz_results' %}" class="btn btn-secondary mt-3">Back to Results</a>
+    </div>
+</body>
+</html>

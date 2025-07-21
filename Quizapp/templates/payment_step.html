@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Step 2 of 3 - Payment</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        h1, h2, p {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .card-option {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .card-option:hover {
+            background-color: #3a3a3a;
+        }
+
+        .card-icons img {
+            height: 30px;
+            margin-left: 8px;
+        }
+
+        .btn {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .lock-icon {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    
+    <h2>Step 2 of 3</h2>
+    <h1>Choose how to pay</h1>
+    <p>Your payment is encrypted and you can change how you pay anytime.</p>
+    <p><strong>Secure for peace of mind.<br>Cancel easily online.</strong></p>
+
+    <div class="lock-icon">End-to-end encrypted 🔒</div>
+
+    <form method="post" action="{% url 'final_payment' %}">
+        {% csrf_token %}
+
+        <p><strong>Selected Plan:</strong> {{ plan_name|capfirst }}</p>
+        <p><strong>Amount to Pay:</strong> Rs. {{ plan_amount }}</p>
+
+        <label for="email">Enter your email to check your account:</label>
+        <input type="email" name="email" id="email" placeholder="your@example.com" required>
+
+        <div class="card-option">
+            <span>Credit or Debit Card</span>
+            <div class="card-icons">
+                <img src="https://img.icons8.com/color/48/visa.png" alt="VISA" />
+                <img src="https://img.icons8.com/color/48/mastercard-logo.png" alt="MasterCard" />
+                <img src="https://img.icons8.com/color/48/amex.png" alt="Amex" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn">Continue</button>
+    </form>
+
+</body>
+</html>

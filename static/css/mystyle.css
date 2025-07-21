@@ -1,0 +1,251 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.primary-btn {
+    background-color: #007bff; /* Trustworthy blue */
+    color: white;
+}
+
+.secondary-btn {
+    background-color: #28a745; /* Fresh green */
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Header */
+header {
+    background-color: #004085; /* Deep blue */
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #007bff, #6c757d);
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #e9ecef;
+}
+
+.hero-buttons a {
+    margin-right: 10px;
+}
+
+/* Features Section */
+.features {
+    padding: 50px 20px;
+    background-color: #f4f8fb; /* Light, soft background */
+    text-align: center;
+}
+
+.features .feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.features .feature {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.features .feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.features .feature h3 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+/* Icons */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.user-friendly { background: #28a745; }
+.ai { background: #ffc107; }
+.grading { background: #17a2b8; }
+.multimedia { background: #6f42c1; }
+
+/* Pricing Section */
+.pricing {
+    padding: 50px 20px;
+    background-color: #ffffff; /* White background for clarity */
+    text-align: center;
+}
+
+.pricing .pricing-tables {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.pricing-plan {
+    background: #f1f8ff; /* Light blue for pricing cards */
+    border-radius: 12px;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-plan h3 {
+    margin-bottom: 20px;
+}
+
+.pricing-plan {
+    border: 2px solid #007bff;
+    background: #e9ecef;
+}
+
+.pricing-plan.popular {
+    border: 2px solid #28a745; /* Highlight popular plan with green */
+}
+
+/* Contact Section (Updated) */
+.contact {
+    padding: 50px 20px;
+    background-color: #f4f8fb;
+    text-align: center;
+}
+
+.contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #007bff;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}

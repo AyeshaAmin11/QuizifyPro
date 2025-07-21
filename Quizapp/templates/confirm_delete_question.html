@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h3>Are you sure you want to delete this question?</h3>
+    <p><strong>{{ question.question }}</strong></p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="{% url 'question_list' question.category.id question.quiz_number.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

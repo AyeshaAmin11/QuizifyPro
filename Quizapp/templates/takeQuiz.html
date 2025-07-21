@@ -1,0 +1,48 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take New Quiz</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include 'studentNavbar.html' %}
+
+
+<div class="container mt-5">
+    <h1>Take New Quiz</h1>
+
+    {% if error_message %}
+        <div class="alert alert-danger">{{ error_message }}</div>
+    {% endif %}
+
+    <h2>Available Quizzes</h2>
+
+    {% if linksQuiz %}
+        <ul class="list-group mt-3">
+            {% for link in linksQuiz %}
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5>{{ link.quiz_number }}</h5>
+                            <p class="mb-1">Category: {{ link.category }}</p>
+                            <small class="text-muted">Difficulty: {{ link.quiz_number.difficulty_level }}</small>
+                        </div>
+                        <a href="{% url 'quiz_solver' link.category.id link.quiz_number.id link.unique_link %}" 
+                           class="btn btn-primary">
+                            Start Quiz
+                        </a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-info mt-3">
+            No new quizzes available. You've completed all assigned quizzes!
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

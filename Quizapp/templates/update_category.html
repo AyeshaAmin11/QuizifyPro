@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Category</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Update Category: "{{ category.cat_name }}"</h1>
+
+        {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+        <!-- Form to update category -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="cat_name">Category Name</label>
+                <input type="text" id="cat_name" name="cat_name" class="form-control" value="{{ category.cat_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="cat_image">Category Image</label>
+                <input type="file" id="cat_image" name="cat_image" class="form-control" accept="image/*">
+                {% if category.cat_image %}
+                    <div class="mt-2">
+                        <p>Current Image:</p>
+                        <img src="{{ category.cat_image.url }}" alt="Current Category Image" style="width: 100px; height: auto;">
+                    </div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="{% url 'category_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
